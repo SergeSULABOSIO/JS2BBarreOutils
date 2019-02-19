@@ -18,6 +18,7 @@ public class Principal extends javax.swing.JFrame {
     
     public BarreOutils bOutils = null;
     public final ImageIcon Infos_02 = new javax.swing.ImageIcon(getClass().getResource("/IMG/Infos02.png"));
+    public Bouton btNouv, btMod, btSupp, btQuit;
 
     /**
      * Creates new form Principal
@@ -29,31 +30,39 @@ public class Principal extends javax.swing.JFrame {
     
     public void construire(){
         bOutils = new BarreOutils(barre);
-        bOutils.AjouterBouton(new Bouton(9, "Nouveau", Infos_02, new BoutonListener() {
+        
+        btNouv = new Bouton(9, "Nouveau", Infos_02, new BoutonListener() {
             @Override
             public void OnEcouteLeClick() {
                 ecran.setText("Nouveau");
             }
-        }));
-        bOutils.AjouterBouton(new Bouton(9, "Modifier", Infos_02, new BoutonListener() {
+        });
+        
+        btMod = new Bouton(9, "Modifier", Infos_02, new BoutonListener() {
             @Override
             public void OnEcouteLeClick() {
                 ecran.setText("Modifier");
             }
-        }));
-        bOutils.AjouterBouton(new Bouton(9, "Supprimer", Infos_02, new BoutonListener() {
+        });
+        btSupp = new Bouton(9, "Supprimer", Infos_02, new BoutonListener() {
             @Override
             public void OnEcouteLeClick() {
                 ecran.setText("Supprimer");
             }
-        }));
-        bOutils.AjouterSeparateur();
-        bOutils.AjouterBouton(new Bouton(9, "Quitter", Infos_02, new BoutonListener() {
+        });
+        btQuit = new Bouton(9, "Quitter", Infos_02, new BoutonListener() {
             @Override
             public void OnEcouteLeClick() {
                System.exit(20);
             }
-        }));
+        });
+        
+        
+        bOutils.AjouterBouton(btNouv);
+        bOutils.AjouterBouton(btMod);
+        bOutils.AjouterBouton(btSupp);
+        bOutils.AjouterSeparateur();
+        bOutils.AjouterBouton(btQuit);
     }
     
     public void vider(){
@@ -78,6 +87,8 @@ public class Principal extends javax.swing.JFrame {
         ecran = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -109,6 +120,20 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel1.setText("jLabel1");
 
+        jButton4.setText("SetGras");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setText("changerTexte");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -130,6 +155,12 @@ public class Principal extends javax.swing.JFrame {
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(ecran, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton5)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,7 +175,11 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(ecran)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
-                .addGap(0, 167, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton4)
+                    .addComponent(jButton5))
+                .addGap(0, 135, Short.MAX_VALUE))
         );
 
         pack();
@@ -164,6 +199,16 @@ public class Principal extends javax.swing.JFrame {
         // TODO add your handling code here:
         ecran.setText("Github!");
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        btNouv.setGras(!btNouv.isGras());
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        btNouv.setText("New", 12, false);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,6 +251,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

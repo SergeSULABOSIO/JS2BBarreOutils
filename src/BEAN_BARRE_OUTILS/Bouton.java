@@ -5,6 +5,7 @@
  */
 package BEAN_BARRE_OUTILS;
 
+import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
@@ -32,7 +33,7 @@ public class Bouton {
         bouton = new JButton();
         bouton.setIcon(this.icone);
         bouton.setText(this.nom);
-        bouton.setFont(new java.awt.Font("Tahoma", 1, this.taille));
+        bouton.setFont(new java.awt.Font("Tahoma", Font.PLAIN, this.taille));
         bouton.setToolTipText(this.nom);
         bouton.setEnabled(true);
         bouton.setFocusable(false);
@@ -44,6 +45,32 @@ public class Bouton {
             }
         });
     }
+    
+    public void setGras(boolean isGras){
+        if(isGras == true){
+            bouton.setFont(new java.awt.Font("Tahoma", Font.BOLD, taille));
+        }else{
+            bouton.setFont(new java.awt.Font("Tahoma", Font.PLAIN, taille));
+        }
+    }
+    
+    public boolean isGras(){
+        if(bouton.getFont().getStyle() == Font.BOLD){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    public void setText(String texte, int taille, boolean isGras){
+        bouton.setText(texte);
+        if(isGras == true){
+            bouton.setFont(new java.awt.Font("Tahoma", Font.BOLD, taille));
+        }else{
+            bouton.setFont(new java.awt.Font("Tahoma", Font.PLAIN, taille));
+        }
+    }
+    
 
     public JButton getBouton() {
         return bouton;
