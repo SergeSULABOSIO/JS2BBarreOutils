@@ -5,6 +5,7 @@
  */
 package BEAN_BARRE_OUTILS;
 
+import java.awt.Color;
 import java.awt.Font;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -44,6 +45,10 @@ public class Bouton {
                 ecouteur.OnEcouteLeClick();
             }
         });
+    }
+    
+    public void setCouleur(Color couleur){
+        bouton.setForeground(couleur);
     }
     
     public void setGras(boolean isGras){
