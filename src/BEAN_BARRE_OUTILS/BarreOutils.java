@@ -28,6 +28,10 @@ public class BarreOutils {
     public void AjouterComposant(PopupMenu bouton) {
         barreOutils.add(bouton);
     }
+    
+    public void SupprimerBouton(Bouton bouton){
+        barreOutils.remove(bouton.getBouton());
+    }
 
     public void AjouterSeparateur() {
         barreOutils.addSeparator();

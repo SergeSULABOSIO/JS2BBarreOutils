@@ -31,26 +31,26 @@ public class Principal extends javax.swing.JFrame {
     public void construire(){
         bOutils = new BarreOutils(barre);
         
-        btNouv = new Bouton(9, "Nouveau", Infos_02, new BoutonListener() {
+        btNouv = new Bouton(9, "Nouveau", "Nouvelle Rubrique", true, Infos_02, new BoutonListener() {
             @Override
             public void OnEcouteLeClick() {
                 ecran.setText("Nouveau");
             }
         });
         
-        btMod = new Bouton(9, "Modifier", Infos_02, new BoutonListener() {
+        btMod = new Bouton(9, "Modifier", "Si vous voulez modifier", false, Infos_02, new BoutonListener() {
             @Override
             public void OnEcouteLeClick() {
                 ecran.setText("Modifier");
             }
         });
-        btSupp = new Bouton(9, "Supprimer", Infos_02, new BoutonListener() {
+        btSupp = new Bouton(9, "Supprimer", "Pour supprimer l'infos", false, Infos_02, new BoutonListener() {
             @Override
             public void OnEcouteLeClick() {
                 ecran.setText("Supprimer");
             }
         });
-        btQuit = new Bouton(9, "Quitter", Infos_02, new BoutonListener() {
+        btQuit = new Bouton(9, "Quitter", "Pour quitter cette fenêtre", false, Infos_02, new BoutonListener() {
             @Override
             public void OnEcouteLeClick() {
                System.exit(20);
@@ -120,6 +120,8 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel1.setText("jLabel1");
 
+        jButton4.setBackground(new java.awt.Color(255, 0, 51));
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("SetGras");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

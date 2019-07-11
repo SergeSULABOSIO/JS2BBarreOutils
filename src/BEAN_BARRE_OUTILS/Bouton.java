@@ -18,15 +18,19 @@ public class Bouton {
 
     private int taille;
     private JButton bouton;
-    private final String nom;
-    private final ImageIcon icone;
-    private final BoutonListener ecouteur;
-
-    public Bouton(int taille, String nom, ImageIcon icone, BoutonListener ecouteur) {
+    private String nom;
+    private ImageIcon icone;
+    private BoutonListener ecouteur;
+    private boolean isGras;
+    private String infosBulle;
+    
+    public Bouton(int taille, String nom, String infosBulle, boolean isGras, ImageIcon icone, BoutonListener ecouteur) {
         this.taille = taille;
         this.nom = nom;
         this.icone = icone;
         this.ecouteur = ecouteur;
+        this.infosBulle = infosBulle;
+        this.isGras = isGras;
         init();
     }
 
@@ -34,8 +38,12 @@ public class Bouton {
         bouton = new JButton();
         bouton.setIcon(this.icone);
         bouton.setText(this.nom);
-        bouton.setFont(new java.awt.Font("Tahoma", Font.PLAIN, this.taille));
-        bouton.setToolTipText(this.nom);
+        bouton.setToolTipText(this.infosBulle);
+        if(isGras == true){
+            bouton.setFont(new java.awt.Font("Tahoma", Font.BOLD, this.taille));
+        }else{
+            bouton.setFont(new java.awt.Font("Tahoma", Font.PLAIN, this.taille));
+        }
         bouton.setEnabled(true);
         bouton.setFocusable(false);
         bouton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -47,8 +55,25 @@ public class Bouton {
         });
     }
     
-    public void setCouleur(Color couleur){
+    public void setVisible(boolean montrer){
+        bouton.setVisible(montrer);
+    }
+    
+    public void setInfosBulle(String texte){
+        bouton.setToolTipText(texte);
+    }
+    
+    public void setForeground(Color couleur){
         bouton.setForeground(couleur);
+    }
+    
+    public void setBackground(Color color){
+        bouton.setBackground(color);
+    }
+    
+    public void setIcone(ImageIcon icone){
+        this.icone = icone;
+        bouton.setIcon(this.icone);
     }
     
     public void setGras(boolean isGras){
@@ -86,3 +111,20 @@ public class Bouton {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
