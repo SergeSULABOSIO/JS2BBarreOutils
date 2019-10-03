@@ -30,7 +30,6 @@ public class Principal extends javax.swing.JFrame {
     
     public void construire(){
         bOutils = new BarreOutils(barre);
-        
         btNouv = new Bouton(9, "Nouveau", "Nouvelle Rubrique", true, Infos_02, new BoutonListener() {
             @Override
             public void OnEcouteLeClick() {
