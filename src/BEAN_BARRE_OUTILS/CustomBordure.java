@@ -36,10 +36,10 @@ public class CustomBordure implements Border{
             g.setColor(COULEUR_ORANGE);
         }
 
-        //g.fill3DRect(0, 0, width - insets.right, insets.top, true);
-        //g.fill3DRect(0, insets.top, insets.left, height - insets.top, true);
-        g.fill3DRect(insets.left, height - insets.bottom, width - insets.left, insets.bottom, true);
-        //g.fill3DRect(width - insets.right, 0, insets.right, height - insets.bottom, true);
+        g.fill3DRect(0, 0, width - insets.right, insets.top, true);   //Haut
+        g.fill3DRect(0, insets.top, insets.left, height - insets.top, true);  //Gauche
+        g.fill3DRect(insets.left, height - insets.bottom, width - insets.left, insets.bottom, true);  //Bas
+        g.fill3DRect(width - insets.right, 0, insets.right, height - insets.bottom, true);    //Droite
     }
 
     public Insets getBorderInsets(Component c) {
