@@ -66,9 +66,7 @@ public class BarreOutils {
                     }
                 }
             }
-            for(Bouton bt: btsOpenned){
-                bt.getBouton().setBorder(new CustomBordure());
-            }
+            
         }
     }
 

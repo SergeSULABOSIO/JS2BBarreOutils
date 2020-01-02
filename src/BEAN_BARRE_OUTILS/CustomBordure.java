@@ -17,17 +17,11 @@ import javax.swing.border.Border;
  */
 public class CustomBordure implements Border{
 
-    public int top;
-    public int left;
-    public int bottom;
-    public int right;
+    public Insets insets;
     public Color color = null;
 
-    public CustomBordure() {
-        this.top = 2;
-        this.left = 4;
-        this.bottom = 8;
-        this.right = 10;
+    public CustomBordure(Insets insets) {
+        this.insets = insets;
         this.color = Color.RED;
     }
 
@@ -45,7 +39,7 @@ public class CustomBordure implements Border{
     }
 
     public Insets getBorderInsets(Component c) {
-        return new Insets(top, left, bottom, right);
+        return insets;
     }
 
     public boolean isBorderOpaque() {
