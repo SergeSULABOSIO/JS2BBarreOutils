@@ -16,8 +16,8 @@ import javax.swing.JToolBar;
  */
 public class BarreOutils {
     private EcouteurSelection es;
-    private Vector<Bouton> btsOpenned = new Vector<Bouton>();
-    private Vector<Bouton> btsSelected = new Vector<Bouton>();
+    private Vector<Bouton> bts = new Vector<Bouton>();
+    
 
     public BarreOutils() {
         this.barreOutils = null;
@@ -32,6 +32,9 @@ public class BarreOutils {
 
     public void AjouterBouton(Bouton bouton) {
         barreOutils.add(bouton.getBouton());
+        if(!bts.contains(bouton)){
+            bts.add(bouton);
+        }
     }
     
     public void AjouterComposant(PopupMenu bouton) {
@@ -40,6 +43,9 @@ public class BarreOutils {
     
     public void SupprimerBouton(Bouton bouton){
         barreOutils.remove(bouton.getBouton());
+        if(bts.contains(bouton)){
+            bts.remove(bouton);
+        }
     }
 
     public void AjouterSeparateur() {
@@ -54,18 +60,8 @@ public class BarreOutils {
         this.es = es;
     }
     
-    public void appliquerEcouteur(){
-        if(es != null){
-            Bouton btOpenned = es.whenOpened();
-            if(btOpenned != null){
-                for(Bouton btop: btsOpenned){
-                    if(btop.equals(btOpenned)){
-                        if(!btsOpenned.contains(btOpenned)){
-                            btsOpenned.add(btOpenned);
-                        }
-                    }
-                }
-            }
+    public void effacerSelection(){
+        for(Bouton bt: bts){
             
         }
     }
