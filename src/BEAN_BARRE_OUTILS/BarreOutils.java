@@ -5,7 +5,9 @@
  */
 package BEAN_BARRE_OUTILS;
 
+import CallBackBarreOutils.EcouteurSelection;
 import java.awt.PopupMenu;
+import java.util.Vector;
 import javax.swing.JToolBar;
 
 /**
@@ -13,6 +15,13 @@ import javax.swing.JToolBar;
  * @author HP Pavilion
  */
 public class BarreOutils {
+    private EcouteurSelection es;
+    private Vector<Bouton> btsOpenned = new Vector<Bouton>();
+    private Vector<Bouton> btsSelected = new Vector<Bouton>();
+
+    public BarreOutils() {
+        this.barreOutils = null;
+    }
 
     private final JToolBar barreOutils;
 
@@ -39,6 +48,28 @@ public class BarreOutils {
     
     public void Vider(){
         barreOutils.removeAll();
+    }
+    
+    public void setEcouteurSelection(EcouteurSelection es){
+        this.es = es;
+    }
+    
+    public void appliquerEcouteur(){
+        if(es != null){
+            Bouton btOpenned = es.whenOpened();
+            if(btOpenned != null){
+                for(Bouton btop: btsOpenned){
+                    if(btop.equals(btOpenned)){
+                        if(!btsOpenned.contains(btOpenned)){
+                            btsOpenned.add(btOpenned);
+                        }
+                    }
+                }
+            }
+            for(Bouton bt: btsOpenned){
+                bt.getBouton().setBorder(new CustomBordure());
+            }
+        }
     }
 
 }

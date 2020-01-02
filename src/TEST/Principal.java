@@ -8,6 +8,7 @@ package TEST;
 import BEAN_BARRE_OUTILS.BarreOutils;
 import BEAN_BARRE_OUTILS.Bouton;
 import BEAN_BARRE_OUTILS.BoutonListener;
+import BEAN_BARRE_OUTILS.CustomBordure;
 import javax.swing.ImageIcon;
 
 /**
