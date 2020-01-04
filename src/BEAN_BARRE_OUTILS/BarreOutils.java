@@ -5,7 +5,6 @@
  */
 package BEAN_BARRE_OUTILS;
 
-import CallBackBarreOutils.EcouteurSelection;
 import java.awt.PopupMenu;
 import java.util.Vector;
 import javax.swing.JToolBar;
@@ -15,13 +14,13 @@ import javax.swing.JToolBar;
  * @author HP Pavilion
  */
 public class BarreOutils {
-    private EcouteurSelection es;
     private Vector<Bouton> bts = new Vector<Bouton>();
     
 
     public BarreOutils() {
         this.barreOutils = null;
     }
+    
 
     private final JToolBar barreOutils;
 
@@ -35,6 +34,7 @@ public class BarreOutils {
         if(!bts.contains(bouton)){
             bts.add(bouton);
         }
+        barreOutils.repaint();
     }
     
     public void AjouterComposant(PopupMenu bouton) {
@@ -56,14 +56,4 @@ public class BarreOutils {
         barreOutils.removeAll();
     }
     
-    public void setEcouteurSelection(EcouteurSelection es){
-        this.es = es;
-    }
-    
-    public void effacerSelection(){
-        for(Bouton bt: bts){
-            
-        }
-    }
-
 }
