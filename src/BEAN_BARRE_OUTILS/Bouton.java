@@ -70,6 +70,7 @@ public class Bouton {
 
     public void setIsClosed() {
         bouton.setForeground(COULEUR_ORANGE);
+        setIsSelected(false);
     }
 
     public void setIsSelected(boolean rep) {
